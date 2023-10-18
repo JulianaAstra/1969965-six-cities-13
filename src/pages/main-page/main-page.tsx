@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Offer } from '../../types/offer.ts';
 import OffersList from '../../components/offers-list/offers-list.tsx';
 import Header from '../../components/header/header.tsx';
+import { MainClassesForCard } from '../../const.ts';
 
 type MainScreenProps = {
   offers: Offer[];
@@ -83,7 +84,7 @@ function MainPage({offers}: MainScreenProps): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <OffersList offers = {offers}/>
+              <OffersList offers = {offers} classes={MainClassesForCard} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />

@@ -55,3 +55,18 @@ export const rating = {
   '2': 'badly',
   '1': 'terribly',
 };
+
+export type Classes = {
+  ARTICLE_CLASS: string;
+  WRAPPER_CLASS: string;
+}
+
+export const NearPlacesClassesForCard: Classes = {
+  ARTICLE_CLASS: 'near-places__card place-card',
+  WRAPPER_CLASS: 'near-places__image-wrapper place-card__image-wrapper'
+};
+
+export const MainClassesForCard: Classes = {
+  ARTICLE_CLASS: 'cities__card place-card',
+  WRAPPER_CLASS: 'cities__image-wrapper place-card__image-wrapper'
+};

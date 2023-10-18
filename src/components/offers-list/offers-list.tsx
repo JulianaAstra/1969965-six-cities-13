@@ -1,12 +1,14 @@
 import Card from '../card/card';
 import { Offer } from '../../types/offer';
 import { useState } from 'react';
+import { Classes } from '../../const';
 
 type OffersListProps = {
   offers: Offer[];
+  classes: Classes;
 }
 
-function OffersList({offers}: OffersListProps): JSX.Element {
+function OffersList({offers, classes}: OffersListProps): JSX.Element {
 
   const [ ,setActiveCard] = useState('');
 
@@ -16,7 +18,7 @@ function OffersList({offers}: OffersListProps): JSX.Element {
 
   return (
     <div className="cities__places-list places__list tabs__content">
-      {offers.map((offer) => <Card onMouseEnter = {() => setActiveCard(offer.id)} onMouseLeave={handleMouseLeave} offer = {offer} key = {offer.id}/>)}
+      {offers.map((offer) => <Card classes={classes} onMouseEnter = {() => setActiveCard(offer.id)} onMouseLeave={handleMouseLeave} offer = {offer} key = {offer.id}/>)}
     </div>
   );
 }

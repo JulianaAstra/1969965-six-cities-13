@@ -4,20 +4,22 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import AddToFavoriteButton from '../add-to-favorite-btn/add-to-favorite-btn';
 import { PagesClassModifier, FavoriteBtnSize } from '../../const';
+import { Classes } from '../../const';
 
 type CardProps = {
   offer: Offer;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  classes: Classes;
 }
 
-function Card({offer, onMouseEnter, onMouseLeave}: CardProps): JSX.Element {
+function Card({offer, onMouseEnter, onMouseLeave, classes}: CardProps): JSX.Element {
   const {id, title, type, price, previewImage, isFavorite, isPremium, rating} = offer;
 
   return (
-    <article onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} className="cities__card place-card">
+    <article onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} className={classes.ARTICLE_CLASS}>
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={classes.WRAPPER_CLASS}>
 
         <Link to = {`${AppRoute.Offer}/${id}`}>
           <img
