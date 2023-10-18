@@ -9,6 +9,7 @@ import { AppRoute, AuthorizationStatus } from '../../const.ts';
 import { HelmetProvider } from 'react-helmet-async';
 import { Offer, OfferDetailed } from '../../types/offer.ts';
 import { Review } from '../../types/review.ts';
+import ScrollToTop from '../scroll-to-top/scroll-to-top.tsx';
 
 type AppScreenProps = {
   offers: Offer[];
@@ -20,12 +21,13 @@ function App({offers, detailedOffers, reviews}: AppScreenProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollToTop/>
         <Routes>
           <Route path={AppRoute.Root} element={<MainPage offers = {offers} />}/>
           <Route
             path={AppRoute.Favorites}
             element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
                 <FavoritesPage offers = {offers} />
               </PrivateRoute>
             }
@@ -36,7 +38,12 @@ function App({offers, detailedOffers, reviews}: AppScreenProps): JSX.Element {
           />
           <Route
             path={`${AppRoute.Offer}/:id`}
-            element={<OfferPage reviews={reviews} offers = {offers} detailedOffers = {detailedOffers}/>}
+            element={
+              <OfferPage
+                reviews={reviews}
+                detailedOffers = {detailedOffers}
+              />
+            }
           />
           <Route
             path="*"
