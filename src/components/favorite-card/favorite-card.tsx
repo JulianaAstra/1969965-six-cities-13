@@ -1,12 +1,14 @@
 import { Offer } from '../../types/offer';
 import { countRating } from '../card/utils';
+import AddToFavoriteButton from '../add-to-favorite-btn/add-to-favorite-btn';
+import { PagesClassModifier, FavoriteBtnSize } from '../../const';
 
 type FavoritesCardProps = {
   offer: Offer;
 }
 
 function FavoritesCard({offer}: FavoritesCardProps): JSX.Element {
-  const {title, type, price, previewImage, isPremium, rating} = offer;
+  const {title, type, price, previewImage, isPremium, rating, isFavorite} = offer;
 
   return (
     <article className="favorites__card place-card">
@@ -30,19 +32,7 @@ function FavoritesCard({offer}: FavoritesCardProps): JSX.Element {
                         /&nbsp;night
             </span>
           </div>
-          <button
-            className="place-card__bookmark-button place-card__bookmark-button--active button"
-            type="button"
-          >
-            <svg
-              className="place-card__bookmark-icon"
-              width={18}
-              height={19}
-            >
-              <use xlinkHref="#icon-bookmark" />
-            </svg>
-            <span className="visually-hidden">In bookmarks</span>
-          </button>
+          <AddToFavoriteButton isFavorite={isFavorite} classModifier={PagesClassModifier.CARD} size={FavoriteBtnSize.CARD} />
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
