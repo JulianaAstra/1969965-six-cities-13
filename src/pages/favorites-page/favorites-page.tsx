@@ -18,7 +18,7 @@ function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
       <Helmet>
         <title>Favorites</title>
       </Helmet>
-      <Header />
+      <Header favoriteOffersCount={offers.length}/>
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
           <section className="favorites">

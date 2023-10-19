@@ -42,6 +42,7 @@ function App({offers, detailedOffers, reviews}: AppScreenProps): JSX.Element {
               <OfferPage
                 reviews={reviews}
                 detailedOffers = {detailedOffers}
+                offers={offers}
               />
             }
           />

@@ -14,13 +14,15 @@ import Reviews from '../../components/reviews/reviews';
 import OffersList from '../../components/offers-list/offers-list';
 import { nearPlaces } from '../../mocks/near-places';
 import { NearPlacesClassesForCard } from '../../const';
+import { Offer } from '../../types/offer';
 
 type OfferPageProps = {
   detailedOffers: OfferDetailed[];
   reviews: Review[];
+  offers: Offer[];
 }
 
-function OfferPage({detailedOffers, reviews} : OfferPageProps): JSX.Element {
+function OfferPage({detailedOffers, reviews, offers} : OfferPageProps): JSX.Element {
 
   const idContainer = useParams();
   const offer = detailedOffers.find((elem) => elem.id === idContainer.id);
@@ -36,7 +38,7 @@ function OfferPage({detailedOffers, reviews} : OfferPageProps): JSX.Element {
       <Helmet>
         <title>Offers</title>
       </Helmet>
-      <Header />
+      <Header favoriteOffersCount={offers.length}/>
       <main className="page__main page__main--offer">
         <section className="offer">
           <div className="offer__gallery-container container">

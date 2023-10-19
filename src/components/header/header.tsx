@@ -2,7 +2,11 @@ import Logo from '../logo/logo';
 import { PagesClassModifier, LogoSize } from '../../const';
 import { Link } from 'react-router-dom';
 
-function Header(): JSX.Element {
+type HeaderProps = {
+  favoriteOffersCount: number;
+}
+
+function Header({favoriteOffersCount}: HeaderProps): JSX.Element {
   return (
     <header className="header">
       <div className="container">
@@ -21,7 +25,7 @@ function Header(): JSX.Element {
                   <span className="header__user-name user__name">
                   Oliver.conner@gmail.com
                   </span>
-                  <span className="header__favorite-count">3</span>
+                  <span className="header__favorite-count">{favoriteOffersCount}</span>
                 </Link>
               </li>
               <li className="header__nav-item">

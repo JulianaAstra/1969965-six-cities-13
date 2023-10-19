@@ -14,7 +14,7 @@ function MainPage({offers}: MainScreenProps): JSX.Element {
       <Helmet>
         <title>6 cities</title>
       </Helmet>
-      <Header />
+      <Header favoriteOffersCount={offers.length}/>
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
