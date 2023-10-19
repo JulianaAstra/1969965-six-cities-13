@@ -10,9 +10,8 @@ type FavoritesPageProps = {
   offers: Offer[];
 }
 
-const cities: string[] = ['Moscow', 'Ryazan', 'Rhodes'];
-
 function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
+  const cities = Array.from(new Set<string>(offers.map((offer) => offer.city['name'])));
 
   return (
     <div className="page">
@@ -25,7 +24,10 @@ function FavoritesPage({offers}: FavoritesPageProps): JSX.Element {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {cities.map((city) => <FavoritesList key={city} city = {city} favoriteOffers={offers} />)}
+              { cities.map((city) => {
+                const offersByCity = offers.filter((offer) => offer.city['name'] === city);
+                return <FavoritesList key={city} city = {city} favoriteOffers={offersByCity} />;
+              })}
             </ul>
           </section>
         </div>

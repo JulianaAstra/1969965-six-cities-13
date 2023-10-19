@@ -1,5 +1,7 @@
 export const RATING_PER_STAR = 20;
 
+export const FAVORITES_COUNT = 3;
+
 export enum AppRoute {
   Root = '/',
   Favorites = '/favorites',

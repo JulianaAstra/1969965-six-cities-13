@@ -31,7 +31,7 @@ export const offers: Offer[] = [
     price: 110,
     previewImage: 'https://13.design.pages.academy/static/hotel/11.jpg',
     city: {
-      name: 'Paris',
+      name: 'Amsterdam',
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
@@ -54,7 +54,7 @@ export const offers: Offer[] = [
     price: 398,
     previewImage: 'https://13.design.pages.academy/static/hotel/1.jpg',
     city: {
-      name: 'Paris',
+      name: 'New York',
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
