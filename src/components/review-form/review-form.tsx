@@ -11,7 +11,6 @@ function ReviewForm(): JSX.Element {
   };
 
   const ratingChangeHandler = (evt: ChangeEvent<HTMLInputElement>) => {
-    evt.preventDefault();
     setUserRating(evt.target.value);
   };
 
@@ -27,8 +26,8 @@ function ReviewForm(): JSX.Element {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        defaultValue={''}
-        value={userText}
+        defaultValue={userText}
+        // value={userText}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -40,7 +39,7 @@ function ReviewForm(): JSX.Element {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled
+          disabled = {userText.length < 49 || !userRate}
         >
                   Submit
         </button>
